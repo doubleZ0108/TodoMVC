@@ -15,3 +15,9 @@ function $c(type){
 function $all(css_selector){
     return document.querySelectorAll(css_selector);
 }
+
+function setStyle(obj, css){
+    for(let atr in css){
+        obj.style[atr] = css[atr];
+    }
+}

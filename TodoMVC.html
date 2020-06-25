@@ -10,31 +10,36 @@
     <title>Zhe ZHANG's TodoMVC</title>
 
     <script type="text/javascript" src="static/js/util.js"></script>
+    <script type="text/javascript" src="static/js/TodoMVC.js"></script>
 
     <link rel="stylesheet" href="static/css/TodoMVC.css">
     <link rel="stylesheet" href="static/css/header.css">
     <link rel="stylesheet" href="static/css/button.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1905839_dk39cte784.css">
 </head>
 <body>
     <div id="app">
         <div id="bg" class="bg"></div>
 
-        <header>
+        <header id="header">
             <div class="HeaderGroup">
-                <h1 class="spotlight" data-spotlight="TODO">TODO</h1><label>📋</label>
+                <h1 id="title" class="spotlight" data-spotlight="TODO">TODO</h1><label>📋</label>
             </div>
         </header>
 
 
         <!-- <button id="float">+</button> -->
 
-        <input type="checkbox" id="ButtonGroup-click">
-        <label for="ButtonGroup-click" class="ButtonGroup">
-            <i>+</i>
-            <a href=""><i>1</i></a>
-            <a href=""><i>2</i></a>
-            <a href=""><i>3</i></a>
-        </label>
+        <div class="float-btns">
+            <input type="checkbox" id="ButtonGroup-click">
+            <label id="btn-group" for="ButtonGroup-click" class="ButtonGroup">
+                <i class="iconfont icon-add"></i>
+                <a href=""><i class="iconfont icon-all"></i></a>
+                <a href=""><i class="iconfont icon-active"></i></a>
+                <a href=""><i class="iconfont icon-yiwancheng"></i></a>
+            </label>
+        </div>
+        
 
 
         <footer>
@@ -53,11 +58,4 @@
         </footer>
     </div>
 </body>
-
-<script>
-    window.onload = function(){
-        console.log(deviceHeight);
-        $('bg').style.height = deviceHeight + "px";
-    };
-</script>
 </html>
