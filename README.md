@@ -72,3 +72,8 @@ js无法获取style中的top等位置，所以迫不得已置为0
 }
 ```
 
+
+
+## todo li
+
+safari不响应:hover，使用touchstart, touchend进行替代
