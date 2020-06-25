@@ -12,7 +12,7 @@ function initBtnGroup(){
         },
         move: function(event){
             event.preventDefault();
-
+            touchStartTimer = new Date();
             $('ButtonGroup-click').checked = false;
 
             let freshTouch = event.touches[0];
@@ -53,7 +53,7 @@ function initBtnGroup(){
             let deltaTime = touchEndTimer.getTime() - touchStartTimer.getTime();
             if(deltaTime > 500){
                 console.log("finish");
-                navigator.vibrate(1000);    // 调用手机震动（无效果）
+                // navigator.vibrate(1000);    // 调用手机震动（无效果）
                 
                 showPopUp();
             }

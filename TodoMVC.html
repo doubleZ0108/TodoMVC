@@ -14,6 +14,7 @@
     <script type="text/javascript" src="static/js/button.js"></script>
     <script type="text/javascript" src="static/js/todo.js"></script>
     <script type="text/javascript" src="static/js/popup.js"></script>
+    <script type="text/javascript" src="static/js/model.js"></script>
 
     <link rel="stylesheet" href="static/css/TodoMVC.css">
     <link rel="stylesheet" href="static/css/header.css">
@@ -29,6 +30,14 @@
         <header id="header">
             <div class="HeaderGroup">
                 <h1 id="title" class="spotlight" data-spotlight="TODO">TODO</h1><label>📋</label>
+            </div>
+            <div class="HeaderSubGroup">
+                <span id="todo-counter">1 todo left</span>
+                <ul class="filters">
+                    <li class="selected">All</li>
+                    <li>Active</li>
+                    <li>Completed</li>
+                </ul>
             </div>
         </header>
 

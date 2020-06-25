@@ -14,4 +14,6 @@ window.onload = function(){
     initTodoStyle();
 
     initPopUp();
+
+    initModeo();
 };

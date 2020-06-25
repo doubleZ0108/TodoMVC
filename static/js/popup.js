@@ -7,17 +7,19 @@ function initPopUp(){
             }, 1000);
 
             if(index === 1){
-                let todoInput = $('todo-input')
-                let inputText = todoInput.value;
-                if(inputText != ""){
-                    //TODO 添加todo
-                    todoInput.value = "";
-                    console.log("add todo ");
-                }
+                addTodo();
             }
             hidePopUp();
-        });
+        }, false);
     });
+
+    $('todo-input').addEventListener('keyup', function(){
+        if (event.keyCode != 13){
+            return;
+        }
+        addTodo();
+        hidePopUp();
+    }, false);
 }
 
 function showPopUp(){
