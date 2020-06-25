@@ -1,0 +1,73 @@
+.ButtonGroup {
+    --to-right: 20px;
+    --to-bottom: 55px;
+    --btn-length: 60px;
+
+    position: fixed;
+    bottom: var(--to-bottom);
+    right: var(--to-right);
+
+    z-index: 999;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ButtonGroup i {
+    width: var(--btn-length);
+    height: var(--btn-length);
+    line-height: var(--btn-length);
+    border-radius: 50%;
+    background-color: lightblue;
+    position: relative;
+}
+
+.ButtonGroup a i {
+    position: absolute;
+    top: calc(var(--btn-length) * 0.25);
+    left: calc(var(--btn-length) * 0.25);
+
+    height: calc(var(--btn-length) * 0.5);
+    width: calc(var(--btn-length) * 0.5);
+    line-height: calc(var(--btn-length) * 0.5);
+    font-size: 10px;
+    z-index: -1;
+    background-color:lemonchiffon;
+    opacity: 0;
+
+    transition: .6s;
+}
+
+#ButtonGroup-click {
+    display: none;
+}
+
+#ButtonGroup-click:checked ~ .ButtonGroup i {
+    background-color: lightcoral;
+}
+
+#ButtonGroup-click:checked ~ .ButtonGroup a i {
+    height: calc(var(--btn-length) - 10px);
+    width: calc(var(--btn-length) - 10px);
+    line-height: calc(var(--btn-length) - 10px);
+    font-size: 30px;
+    opacity: 1;
+    z-index: 1;
+}
+
+#ButtonGroup-click:checked ~ .ButtonGroup a:nth-child(2) i {
+    top: calc(var(--btn-length) * 0.5);
+    left: calc(var(--btn-length) * -1.0);
+}
+
+#ButtonGroup-click:checked ~ .ButtonGroup a:nth-child(3) i {
+    top: calc(var(--btn-length) * -0.5);
+    left: calc(var(--btn-length) * -0.8);
+}
+
+#ButtonGroup-click:checked ~ .ButtonGroup a:nth-child(4) i {
+    top: calc(var(--btn-length) * -1.0);
+    left: calc(var(--btn-length) * 0.2);
+}
