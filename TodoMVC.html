@@ -33,10 +33,9 @@
             </div>
             <div class="HeaderSubGroup">
                 <span id="todo-counter">1 todo left</span>
-                <ul class="filters">
-                    <li class="selected">All</li>
-                    <li>Active</li>
-                    <li>Completed</li>
+                <ul class="tools" id="tools">
+                    <li><button>全部完成</button></li>
+                    <li><button>删除已完成</button></li>
                 </ul>
             </div>
         </header>
@@ -48,9 +47,12 @@
             <input type="checkbox" id="ButtonGroup-click">
             <label id="btn-group" for="ButtonGroup-click" class="ButtonGroup">
                 <i class="iconfont icon-add"></i>
-                <a href=""><i class="iconfont icon-all"></i></a>
-                <a href=""><i class="iconfont icon-active"></i></a>
-                <a href=""><i class="iconfont icon-yiwancheng"></i></a>
+                <div id="filters" class="filters">
+                    <a><i class="iconfont icon-all"></i></a>
+                    <a><i class="iconfont icon-active"></i></a>
+                    <a><i class="iconfont icon-yiwancheng"></i></a>
+                </div>
+                
             </label>
         </div>
         

@@ -88,25 +88,33 @@ header label {
     margin-bottom: 10px;
 }
 
-.HeaderSubGroup .filters {
+.HeaderSubGroup .tools {
     display: grid;
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(2, auto);
     grid-gap: 10px;
     text-decoration: none;
     list-style: none;
     margin-bottom: 10px;
 }
 
-.HeaderSubGroup .filters li {
+.HeaderSubGroup .tools li {
     text-decoration: none;
-    color: white;
-    font-size: 0.8rem;
-    border: 1px solid white;
-    border-radius: 5px;
-    padding: 5px;
+    
 }
 
-.HeaderSubGroup .filters li.selected {
+.HeaderSubGroup .tools li button {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    font-size: 0.6rem;
+    line-height: 0.6rem;
+    border-radius: 5px;
+    outline: none;
+    padding: 7px;
+    transition: .3s cubic-bezier(0.2,0.8,0.2,1);
+}
+
+.HeaderSubGroup .tools li button:active {
     background-color: rgba(255, 255, 255, 0.8);
     color: #555;
 }

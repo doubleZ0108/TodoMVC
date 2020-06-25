@@ -69,3 +69,36 @@ function initBtnGroup(){
     btnGroup.addEventListener("touchend", btnGroupTouchHandler.end);
     btnGroup.addEventListener("touchcancel", btnGroupTouchHandler.cancel);
 }
+
+function initFilter(){
+    let filters = $('filters');
+    let filterAll = filters.firstElementChild;
+    let filterActive = filters.firstElementChild.nextElementSibling;
+    let filterCompleted = filters.lastElementChild;
+
+    filterAll.addEventListener("touchstart", function(){
+        
+    });
+
+    filterActive.addEventListener("touchstart", function(){
+        
+    });
+
+    filterCompleted.addEventListener("touchstart", function(){
+        
+    });
+}
+
+function initTool(){
+    let tools = $('tools');
+    let finishAll = tools.firstElementChild.firstElementChild;
+    let deleteCompleted = tools.lastElementChild.firstElementChild;
+
+    finishAll.addEventListener("click", function(){
+       
+    });
+
+    deleteCompleted.addEventListener("click", function(){
+        
+    });
+}

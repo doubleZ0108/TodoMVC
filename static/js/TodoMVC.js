@@ -15,5 +15,9 @@ window.onload = function(){
 
     initPopUp();
 
-    initModeo();
+    initModel();
+
+    initFilter();
+
+    initTool();
 };

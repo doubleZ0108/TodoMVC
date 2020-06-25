@@ -68,19 +68,19 @@
     z-index: 1;
 }
 
-#ButtonGroup-click:checked ~ .ButtonGroup a:nth-child(2) i {
+#ButtonGroup-click:checked ~ .ButtonGroup a:nth-child(1) i {
     top: calc(var(--btn-length) * 0.5);
     left: calc(var(--btn-length) * -1.0);
     background-color: #FCCF31;
 }
 
-#ButtonGroup-click:checked ~ .ButtonGroup a:nth-child(3) i {
+#ButtonGroup-click:checked ~ .ButtonGroup a:nth-child(2) i {
     top: calc(var(--btn-length) * -0.5);
     left: calc(var(--btn-length) * -0.8);
     background-color: #7367F0;
 }
 
-#ButtonGroup-click:checked ~ .ButtonGroup a:nth-child(4) i {
+#ButtonGroup-click:checked ~ .ButtonGroup a:nth-child(3) i {
     top: calc(var(--btn-length) * -1.0);
     left: calc(var(--btn-length) * 0.2);
     background-color: #32CCBC;
