@@ -9,13 +9,11 @@ window.onload = function(){
     // for mobile safari infobar
     $('bg').style.height = deviceHeight + "px";
 
+    initModel();
+
     initBtnGroup();
 
-    initTodoStyle();
-
     initPopUp();
-
-    initModel();
 
     initFilter();
 

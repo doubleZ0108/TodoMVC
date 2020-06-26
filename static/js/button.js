@@ -23,7 +23,7 @@ function initBtnGroup(){
             let bottom = parseFloat(btnGroup.style.bottom || 0) + deltaBottom;
 
             if(right < deviceWidth - 60 && right > 0
-                && bottom < deviceHeight - 200 && bottom > 0){
+                && bottom < deviceHeight - 300 && bottom > 0){
                 setStyle(btnGroup, {
                     right: right + "px",
                     bottom: bottom + "px"
@@ -52,7 +52,6 @@ function initBtnGroup(){
             touchEndTimer = new Date();
             let deltaTime = touchEndTimer.getTime() - touchStartTimer.getTime();
             if(deltaTime > 500){
-                console.log("finish");
                 // navigator.vibrate(1000);    // 调用手机震动（无效果）
                 
                 showPopUp();
@@ -71,21 +70,23 @@ function initBtnGroup(){
 }
 
 function initFilter(){
-    let filters = $('filters');
-    let filterAll = filters.firstElementChild;
-    let filterActive = filters.firstElementChild.nextElementSibling;
-    let filterCompleted = filters.lastElementChild;
-
-    filterAll.addEventListener("touchstart", function(){
-        
-    });
-
-    filterActive.addEventListener("touchstart", function(){
-        
-    });
-
-    filterCompleted.addEventListener("touchstart", function(){
-        
+    Array.from($all(".filters a")).forEach(function(filter, index){
+        filter.addEventListener("touchstart", function(){
+            switch(index){
+                case 0:
+                    model.data.filter = "All";
+                    break;
+                case 1:
+                    model.data.filter = "Active";
+                    break;
+                case 2:
+                    model.data.filter = "Completed";
+                    break;
+                default:
+                    model.data.filter = "All"
+            }
+            update();
+        });
     });
 }
 
@@ -95,10 +96,26 @@ function initTool(){
     let deleteCompleted = tools.lastElementChild.firstElementChild;
 
     finishAll.addEventListener("click", function(){
-       
+       if(this.innerHTML === "全部完成"){
+           this.innerHTML = "全部未完成";
+           model.data.todos.forEach(todo => {
+                todo.completed = true;
+           });
+       } else {
+            this.innerHTML = "全部完成";
+            model.data.todos.forEach(todo => {
+                todo.completed = false;
+           });
+       }
+       update();
     });
 
     deleteCompleted.addEventListener("click", function(){
-        
+        model.data.todos.forEach((todo, index) => {
+            if(todo.completed){
+                model.data.todos.slice(index, 1);
+            }
+        });
+        update();
     });
 }

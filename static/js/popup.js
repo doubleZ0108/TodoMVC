@@ -27,6 +27,7 @@ function showPopUp(){
         opacity: "1",
         zIndex: "999",
     });
+    $('todo-input').focus();
 }
 
 function hidePopUp(){

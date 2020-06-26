@@ -1,6 +1,7 @@
 /* ========= todos =========== */
 .todos {
     transform: perspective(400);
+    transition: 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .todo-group {
@@ -112,7 +113,18 @@
     text-align: center;
     transition: all 0.65s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
-/* .todo-group:hover .cover-content {
-    transform: rotateX(var(--rotate-deg)) translate3d(0, 0, 0);
-    backface-visibility: hidden;
-} */
+
+.todo-group .cover-content p.completed {
+    text-decoration: line-through;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.todo-group .cover-content .editing {
+    width: 80%;
+    height: calc(var(--button-height) * 0.5);
+    font-size: 1rem;
+    border-radius: 5px;
+    border: #333;
+    color: #555;
+    padding: 3px;
+}
