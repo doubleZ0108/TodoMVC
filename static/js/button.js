@@ -52,8 +52,12 @@ function initBtnGroup(){
             touchEndTimer = new Date();
             let deltaTime = touchEndTimer.getTime() - touchStartTimer.getTime();
             if(deltaTime > 500){
-                // navigator.vibrate(1000);    // 调用手机震动（无效果）
-                
+                if (navigator.vibrate) {        // 调用手机震动（无效果）
+                    navigator.vibrate(1000);
+                } else if (navigator.webkitVibrate) {
+                    navigator.webkitVibrate(1000);
+                }
+
                 showPopUp();
             }
         },

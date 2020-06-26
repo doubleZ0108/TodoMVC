@@ -1,5 +1,5 @@
 const dbltouch_interval = 800; //双击的判定间隔
-const tolerateVerticalOffset = 5; // 最大容忍的上下移动距离（希望用户左右滑动）
+const tolerateVerticalOffset = 20; // 最大容忍的上下移动距离（希望用户左右滑动）
 
 function initTodo(elem, index) {
     let touchStartTimer, touchEndTimer;
@@ -49,6 +49,12 @@ function initTodo(elem, index) {
             click_counter = 0;
 
             if (!model.data.todos[index].completed) {
+                if (navigator.vibrate) {        // 调用手机震动（无效果）
+                    navigator.vibrate(1000);
+                } else if (navigator.webkitVibrate) {
+                    navigator.webkitVibrate(1000);
+                }
+                
                 let todoContent = elem.lastElementChild.firstElementChild;
                 let todoText = todoContent.firstElementChild;
                 let currentText = todoText.innerHTML;

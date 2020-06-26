@@ -20,6 +20,8 @@ function initPopUp(){
         addTodo();
         hidePopUp();
     }, false);
+
+    hidePopUp();
 }
 
 function showPopUp(){
@@ -27,12 +29,23 @@ function showPopUp(){
         opacity: "1",
         zIndex: "999",
     });
+    
+    $('todo-input').disabled = false;
+    Array.from($all('.InputBtnGroup .rubber-band')).forEach(elem => {
+        elem.disabled = false;
+    });
+
     $('todo-input').focus();
 }
 
 function hidePopUp(){
     setStyle($("popup-box"), {
         opacity: "0",
-        zIndex: "-1",
+        zIndex: "-100",
+    });
+
+    $('todo-input').disabled = true;
+    Array.from($all('.InputBtnGroup .rubber-band')).forEach(elem => {
+        elem.disabled = true;
     });
 }
