@@ -51,3 +51,9 @@ html {
         filter: blur(4px) brightness(85%);
     }
 }
+
+@media (min-width: 500px) {
+    html {
+        min-height: 200vh;
+    }
+}

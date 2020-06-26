@@ -104,6 +104,12 @@
     transition: all 0.65s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
+.todo-group .cover-content p {
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
 .todo-group .cover-content p.completed {
     text-decoration: line-through;
     color: rgba(255, 255, 255, 0.3);
