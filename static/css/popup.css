@@ -14,7 +14,7 @@
     justify-content: center;
     flex-direction: column;
 
-    transition: .8s cubic-bezier(0.2,0.8,0.2,1);
+    transition: 1.5s cubic-bezier(0.2,0.8,0.2,1);
 }
 
 .popup-box h2 {
@@ -75,4 +75,29 @@
     100% {
         transform: scale3d(1, 1, 1);
     }
+}
+
+@media (prefers-color-scheme: dark) {
+    .popup-box h2 {
+        background: linear-gradient(104deg, #123597, #97ABFF);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .popup-box input {
+        border: #333;
+        background-color: #555;
+        color: white;
+    }
+
+    .InputBtnGroup button {
+        color: rgba(255, 255, 255, 0.5);
+    }
+    .InputBtnGroup button:active {
+        color: rgba(255, 255, 255, 0.8);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    
 }

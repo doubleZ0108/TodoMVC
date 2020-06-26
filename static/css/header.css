@@ -10,7 +10,7 @@ header .HeaderGroup {
     align-items: center;
 
     /* border-bottom: 3px solid white; */
-    box-shadow: 2px 2px 5px #333333;
+    box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.6);
     border-radius: 20px;
     overflow: hidden;
 }
@@ -18,6 +18,7 @@ header .HeaderGroup {
 /*spotlight*/
 .spotlight {
     color: white;
+    border: none;
     font-family: Helvetica, serif;
     font-size: 3rem;
     position: relative;
@@ -29,7 +30,7 @@ header .HeaderGroup {
 .spotlight::after {
     content: attr(data-spotlight);
     color: transparent;
-
+    border: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -41,7 +42,7 @@ header .HeaderGroup {
     -webkit-clip-path: ellipse(100px 100px at 0% 50%);
 
     /*background mask*/
-    background-image: linear-gradient(to right, #5151E5, #72EDF2);
+    background-image: linear-gradient(104deg, #5151E5, #72EDF2);
     background-size: 150%;
     background-position: center center;
     -webkit-background-clip: text;
@@ -116,17 +117,43 @@ header label {
 
 .HeaderSubGroup .tools li button:active {
     background-color: rgba(255, 255, 255, 0.8);
-    color: #555;
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
+    header .HeaderGroup {
+        box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.6);
+    }
+    
+    /*spotlight*/
     .spotlight {
-        color: white;
+        color: #333;
+    }
+    .spotlight::after {
+        /*background mask*/
+        background-image: linear-gradient(104deg, #123597, #97ABFF);
+        background-size: 150%;
+        background-position: center center;
+        -webkit-background-clip: text;
+    }
+
+    .HeaderSubGroup {
+        border-bottom: 3px solid rgba(255, 255, 255, 0.5);;
+    }
+    
+    .HeaderSubGroup span {
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    .HeaderSubGroup .tools li button {
+        color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    
+    .HeaderSubGroup .tools li button:active {
+        background-color: rgba(255, 255, 255, 0.3);
     }
 }
 
 @media (prefers-color-scheme: light) {
-    .spotlight {
-        color: #333;
-    }
-} */
+    
+}

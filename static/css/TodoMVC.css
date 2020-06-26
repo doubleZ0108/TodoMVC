@@ -5,8 +5,7 @@
 
 html {
     font-size: 25px;
-    min-height: 200vh;
-    
+    min-height: 100vh;
     user-select:none;   /*禁止页面选择*/
     -webkit-user-select:none; 
 }
@@ -21,11 +20,11 @@ html {
     position: fixed;
     left: 0;
     top: 0;
-    background: url("../img/shu.png");
+    background: url("../img/jia.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    filter: blur(5px);
+    /* filter: blur(5px); */
     z-index: -1;
 }
 
@@ -38,4 +37,37 @@ footer {
 footer svg {
     position: fixed;
     bottom: 0;
+}
+
+
+footer svg path {
+    fill: url(#myGradient);
+}
+
+/* .stop1 { stop-color: #123597; }
+.stop2 { stop-color: #97ABFF; } */
+
+
+.stop1 { stop-color: rgba(255, 255, 255, 1); }
+.stop2 { stop-color: rgba(255, 255, 255, 0.9); }
+
+@media (prefers-color-scheme: dark) {
+    .bg {
+        background: url("../img/jia.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        filter: blur(3px);
+    }
+
+    .stop1 { 
+        stop-color: rgba(255, 255, 255, 0.8); 
+    }
+    .stop2 { 
+        stop-color: rgba(255, 255, 255, 0.6); 
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    
 }
