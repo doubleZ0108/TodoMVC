@@ -1,3 +1,8 @@
+const longtouch_interval = 500;     //长按的判定间隔
+
+/**
+ * 浮动球样式及监听绑定
+ **/
 function initBtnGroup(){
     let btnGroup = $('btn-group');
 
@@ -22,7 +27,8 @@ function initBtnGroup(){
             let right = parseFloat(btnGroup.style.right || 0) + deltaRight;
             let bottom = parseFloat(btnGroup.style.bottom || 0) + deltaBottom;
 
-            if(right < deviceWidth - 60 && right > 0
+            /* 跟随手指移动浮动球 */
+            if(right < deviceWidth - 60 && right > 0        // 边界检测
                 && bottom < deviceHeight - 300 && bottom > 0){
                 setStyle(btnGroup, {
                     right: right + "px",
@@ -30,13 +36,13 @@ function initBtnGroup(){
                 });
             }
 
-            // 浮动球移动到了左边
+            /* 浮动球移动到左边进行反转 */
             if(right > (deviceWidth - 60) / 2){
                 setStyle(btnGroup, {
-                    transform: "translateY(-30px) rotateY(180deg)"
+                    transform: "translateY(-30px) rotateY(180deg)"      // 先将整体翻转180
                 });
                 Array.from($all('.ButtonGroup a i')).forEach(function(elem){
-                    elem.style.transform = "rotateY(180deg)";
+                    elem.style.transform = "rotateY(180deg)";           // 再将每个元素翻转180
                 });
             } else {
                 btnGroup.style.transform = "translateY(-30px)";
@@ -51,8 +57,11 @@ function initBtnGroup(){
             event.preventDefault();
             touchEndTimer = new Date();
             let deltaTime = touchEndTimer.getTime() - touchStartTimer.getTime();
-            if(deltaTime > 500){
-                if (navigator.vibrate) {        // 调用手机震动（无效果）
+
+            /* 长按判定 */
+            if(deltaTime > longtouch_interval){
+                // 调用手机震动（无效果）
+                if (navigator.vibrate) {
                     navigator.vibrate(1000);
                 } else if (navigator.webkitVibrate) {
                     navigator.webkitVibrate(1000);
@@ -73,6 +82,9 @@ function initBtnGroup(){
     btnGroup.addEventListener("touchcancel", btnGroupTouchHandler.cancel);
 }
 
+/**
+ * 过滤器监听绑定
+ **/
 function initFilter(){
     Array.from($all(".filters a")).forEach(function(filter, index){
         filter.addEventListener("touchstart", function(){
@@ -94,11 +106,15 @@ function initFilter(){
     });
 }
 
+/**
+ * 功能按钮监听绑定
+ **/
 function initTool(){
     let tools = $('tools');
     let finishAll = tools.firstElementChild.firstElementChild;
     let deleteCompleted = tools.lastElementChild.firstElementChild;
 
+    /* 全部(未)完成事件绑定 */
     finishAll.addEventListener("click", function(){
        if(this.innerHTML === "全部完成"){
            this.innerHTML = "全部未完成";
@@ -115,6 +131,7 @@ function initTool(){
        update();
     });
 
+    /* 删除全部事件绑定 */
     deleteCompleted.addEventListener("click", function(){
         model.data.todos.forEach((todo, index) => {
             if(todo.completed){

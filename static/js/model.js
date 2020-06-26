@@ -1,3 +1,6 @@
+/**
+ * Model层
+ **/
 window.model = {
     data: {
         todos: [
@@ -12,15 +15,19 @@ window.model = {
     }
 }
 
+let guid = 0;   // 全局唯一标识符
+
+/**
+ * 首次加载
+ **/
 function initModel(){
-    // 首次加载 可以添加一些特殊的逻辑
     update();
+    /* 可以添加一些特殊的逻辑 */
 }
 
-
-
-let guid = 0;
-
+/**
+ * 根据Model层更新View层
+ **/
 function update() {
     let activeNum = 0;
     let todoList = $('todos');
@@ -31,6 +38,7 @@ function update() {
             activeNum++;
         }
 
+        /* 根据filter进行筛选 */
         if(model.data.filter === "All" || 
           (model.data.filter === "Active" && !todo.completed) || 
           (model.data.filter === "Completed" && todo.completed)){
@@ -61,6 +69,7 @@ function update() {
             //     initTodo($('todo-'+id), todoIndex);
             // })(id, todoIndex);
 
+            /* 动态生成一个todo */
             let todoGroup = $c('div');
             todoGroup.classList.add('todo-group');
             todoGroup.setAttribute('id', "todo-" + id);
@@ -96,13 +105,15 @@ function update() {
             todoGroup.appendChild(todoPaper);
             todoGroup.appendChild(coverContentContainer);
 
-            // 绑定监听器
+            /* 绑定监听器 */
             initTodo(todoGroup, todoIndex);
 
+            /* 插入到todo list最前面 */
             todoList.insertBefore(todoGroup, todoList.firstElementChild);
         }
     });
 
+    /* 更新顶部剩余计数器 */
     let todoCounter = $('todo-counter');
     todoCounter.innerHTML = (activeNum || 'No') + ' ' + (activeNum > 1 ? 'todos' : 'todo') + ' left'
 }

@@ -8,14 +8,12 @@ header .HeaderGroup {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    /* border-bottom: 3px solid white; */
     box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.6);
     border-radius: 20px;
     overflow: hidden;
 }
 
-/*spotlight*/
+/* spotlight */
 .spotlight {
     color: white;
     border: none;
@@ -25,8 +23,6 @@ header .HeaderGroup {
     text-align: center;
     /* display: inline-block; */
 }
-
-/*pseudo element*/
 .spotlight::after {
     content: attr(data-spotlight);
     color: transparent;
@@ -118,6 +114,7 @@ header label {
 .HeaderSubGroup .tools li button:active {
     background-color: rgba(255, 255, 255, 0.8);
 }
+
 
 @media (prefers-color-scheme: dark) {
     header .HeaderGroup {
