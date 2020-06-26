@@ -4,7 +4,7 @@ const tolerateVerticalOffset = 5; // 最大容忍的上下移动距离（希望�
 function initTodo(elem, index) {
     let touchStartTimer, touchEndTimer;
 
-    /* for rotation */
+    /* for style */
     /* safari不响应hover */
     elem.addEventListener("touchstart", function () {
 
@@ -53,7 +53,6 @@ function initTodo(elem, index) {
                 let todoText = todoContent.firstElementChild;
                 let currentText = todoText.innerHTML;
                 let currentRotation = todoText.style.transform;
-                console.log(currentRotation);
                 todoText.style.display = "none";
 
                 let todoEdit = $c('input');
@@ -67,7 +66,8 @@ function initTodo(elem, index) {
                     if (todoEdit.value !== "") {
                         todoText.innerHTML = todoEdit.value;
                         model.data.todos[index].content = todoEdit.value;
-                        flush();
+                        model.flush();
+                        update();
                     } else {
                         alert("Todo cannot be empty😇");
                     }
@@ -93,6 +93,7 @@ function initTodo(elem, index) {
         if (deltaTime > 500) {
             //TODO complete this todo
             model.data.todos[index].completed = !model.data.todos[index].completed;
+            model.flush();
             update();
         }
     });
@@ -130,11 +131,31 @@ function initTodo(elem, index) {
         if (isDelete && elem != null) {
             elem.parentNode.removeChild(elem);
             model.data.todos.splice(index, 1);
-            console.log(model.data.todos);
+
+            model.flush();
             update();
-            flush();
         } else {
             touchObj.style.left = 0;
         }
     }, false);
+}
+
+function addTodo(){
+    let todoInput = $('todo-input')
+    let inputText = todoInput.value;
+    if(inputText != ""){
+        //TODO 添加todo
+        todoInput.value = "";
+
+        model.data.todos.push({
+            content: inputText,
+            time: new Date(),
+            completed: false
+        });
+
+        model.flush();
+        update();
+    } else {
+        alert("Todo cannot be empty😇");
+    }
 }

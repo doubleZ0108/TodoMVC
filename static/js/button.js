@@ -107,15 +107,20 @@ function initTool(){
                 todo.completed = false;
            });
        }
+       model.flush();
        update();
     });
 
     deleteCompleted.addEventListener("click", function(){
         model.data.todos.forEach((todo, index) => {
             if(todo.completed){
-                model.data.todos.slice(index, 1);
+                model.data.todos.splice(index, 1);
             }
         });
+        if(model.data.todos.length!=0 && model.data.todos[0].completed){
+            model.data.todos.splice(0,1);   // 额外处理删除所有时bug
+        }
+        model.flush();
         update();
     });
 }

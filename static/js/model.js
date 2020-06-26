@@ -17,30 +17,11 @@ function initModel(){
     update();
 }
 
-function addTodo(){
-    let todoInput = $('todo-input')
-    let inputText = todoInput.value;
-    if(inputText != ""){
-        //TODO 添加todo
-        todoInput.value = "";
 
-        model.data.todos.push({
-            content: inputText,
-            time: new Date(),
-            completed: false
-        });
-
-        update();
-    } else {
-        alert("Todo cannot be empty😇");
-    }
-}
 
 let guid = 0;
 
 function update() {
-    // model.flush();
-
     let activeNum = 0;
     let todoList = $('todos');
     todoList.innerHTML = '';
@@ -121,8 +102,7 @@ function update() {
             todoList.insertBefore(todoGroup, todoList.firstElementChild);
         }
     });
-}
 
-function flush() {
-    console.log("flush");
+    let todoCounter = $('todo-counter');
+    todoCounter.innerHTML = (activeNum || 'No') + ' ' + (activeNum > 1 ? 'todos' : 'todo') + ' left'
 }

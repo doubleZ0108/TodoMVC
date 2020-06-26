@@ -9,7 +9,9 @@ window.onload = function(){
     // for mobile safari infobar
     $('bg').style.height = deviceHeight + "px";
 
-    initModel();
+    model.init(function(){
+        initModel();
+    });
 
     initBtnGroup();
 
