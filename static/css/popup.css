@@ -99,5 +99,22 @@
 }
 
 @media (prefers-color-scheme: light) {
-    
+    .popup-box h2 {
+        background: linear-gradient(104deg, #5151E5, #72EDF2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .popup-box input {
+        border: rgba(255, 255, 255, 1);
+        background-color: rgba(255, 255, 255, 1);
+        color: #333;
+    }
+
+    .InputBtnGroup button {
+        color: rgba(255, 255, 255, 0.8);
+    }
+    .InputBtnGroup button:active {
+        color: rgba(255, 255, 255, 1);
+    }
 }

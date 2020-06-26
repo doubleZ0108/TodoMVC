@@ -53,7 +53,7 @@ footer svg path {
 
 @media (prefers-color-scheme: dark) {
     .bg {
-        background: url("../img/jia.jpg");
+        background: url("../img/dark-bg.jpg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
@@ -69,5 +69,18 @@ footer svg path {
 }
 
 @media (prefers-color-scheme: light) {
-    
+    .bg {
+        background: url("../img/light-bg.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        filter: blur(4px) brightness(85%);
+    }
+
+    .stop1 { 
+        stop-color: rgba(255, 255, 255, 0.8); 
+    }
+    .stop2 { 
+        stop-color: rgba(255, 255, 255, 0.6); 
+    }
 }

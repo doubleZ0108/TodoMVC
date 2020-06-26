@@ -124,12 +124,10 @@ header label {
         box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.6);
     }
     
-    /*spotlight*/
     .spotlight {
         color: #333;
     }
     .spotlight::after {
-        /*background mask*/
         background-image: linear-gradient(104deg, #123597, #97ABFF);
         background-size: 150%;
         background-position: center center;
@@ -155,5 +153,34 @@ header label {
 }
 
 @media (prefers-color-scheme: light) {
+    header .HeaderGroup {
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    }
     
+    .spotlight {
+        color: rgba(255, 255, 255, 0.6);
+    }
+    .spotlight::after {
+        background-image: linear-gradient(104deg, #5151E5, #72EDF2);
+        background-size: 150%;
+        background-position: center center;
+        -webkit-background-clip: text;
+    }
+
+    .HeaderSubGroup {
+        border-bottom: 3px solid rgba(0, 0, 0, 0.3);
+    }
+    
+    .HeaderSubGroup span {
+        color: rgba(0, 0, 0, 0.6);
+    }
+
+    .HeaderSubGroup .tools li button {
+        color: rgba(0, 0, 0, 0.6);
+        border: 1px solid rgba(0, 0, 0, 0.4);
+    }
+    
+    .HeaderSubGroup .tools li button:active {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
 }

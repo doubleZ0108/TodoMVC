@@ -149,5 +149,21 @@
 }
 
 @media (prefers-color-scheme: light) {
+    .todo-group .todo-paper .todo-paper-bg {
+        background: linear-gradient(104deg, #5151E5, #72EDF2);
+    }
+
+    .todo-group .cover-content-container {
+        color: rgba(255, 255, 255, 0.8);
+    }
     
+    .todo-group .cover-content p.completed {
+        color: rgba(255, 255, 255, 0.3);
+    }
+
+    .todo-group .cover-content .editing {
+        border: #333;
+        color: #555;
+        background-color: rgba(255, 255, 255, 0.8);
+    }
 }

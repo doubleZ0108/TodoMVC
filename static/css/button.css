@@ -98,5 +98,12 @@
 }
 
 @media (prefers-color-scheme: light) {
+    .ButtonGroup i {
+        color: rgba(255, 255, 255, 0.9);
+        background-image: linear-gradient(104deg, #5151E5, #72EDF2);
+    }
     
+    .ButtonGroup a i {
+        color: rgba(255, 255, 255, 0.9);
+    }
 }
