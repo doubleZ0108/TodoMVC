@@ -107,6 +107,11 @@
 
 <br/>
 
+
+
+<details>
+	<summary>核心实现代码</summary>
+
 ## 核心实现
 
 ### 语法优化
@@ -456,6 +461,9 @@ btnGroupTouchHandler = {
    ```
 
    
+
+</details>
+
 
 <br/>
 
