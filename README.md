@@ -1,6 +1,6 @@
 # TodoMVC
 
-🌐[Zhe ZHANG's TodoMVC](http://server.doublez.site:5000/TodoMVC)
+🌐[Zhe ZHANG's TodoMVC](https://doublez0108.github.io/TodoMVC/TodoMVC.html)
 
 📦 [github仓库](https://github.com/doubleZ0108/TodoMVC)
 
